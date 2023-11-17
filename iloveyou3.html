@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: magenta;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(purple, blueviolet);
+        }
+
+        h1 {
+            font-size: 24px;
+            text-align: center;
+            background-color: white;
+            border: 4px solid pink;
+            border-radius: 10px;
+            font-size: 45px;
+            transition: transform 0.5s ease-in-out;
+            padding: 0 5px 0 5px;
+        }
+
+        button {
+            background-color: magenta;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 30%;
+            border: 2px solid pink;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .logo {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">❤️</div>
+    <h1>Please Wait A Moment</h1>
+    <button>I don't want it</button>
+</body>
+<script>
+    let myTimeOut = setTimeout(() => {
+        const h1 = document.querySelector('h1');
+        h1.style.transform = 'scale(0)';
+        setTimeout(() => {
+            h1.innerHTML = "I LOVE YOU";
+            h1.style.transform = 'scale(1)';
+            document.body.style.backgroundColor = 'blueviolet'; // Change background color
+        }, 500);
+    }, 3000)
+
+    document.querySelector("button").addEventListener("click", () => {
+        clearTimeout(myTimeOut);
+        const h1 = document.querySelector("h1");
+        h1.innerHTML = "I'M OKAY";
+        h1.style.transform = 'scale(1)';
+        document.querySelector("button").style.opacity = "0";
+        document.body.style.backgroundColor = 'purple'; // Change background color
+    })
+</script>
+</html>
+
+
+
